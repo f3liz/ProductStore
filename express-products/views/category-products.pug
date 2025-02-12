@@ -1,0 +1,20 @@
+extends layout.pug 
+
+block mainContent 
+    main
+        h1 #{category} Products
+        section#products
+            if products.length > 0
+                each product in products 
+                    div.product 
+                        img(src=product.image alt=product.name)
+                        h2= product.name 
+                        p Price: $#{product.price} 
+                        p= product.description
+                        .features 
+                            each feature in product.features 
+                                span= feature
+                        a.viewsbtn(href=`/products/product/${product.id}`) View Details
+
+            else 
+                p No products found in this category.

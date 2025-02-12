@@ -1,0 +1,20 @@
+extends layout.pug
+
+block mainContent
+    main
+        section.container
+            h1 Welcome to the Product Store
+
+            p Browse our categories to find the perfect products for you!
+
+            a.button(href="/products/all") View All Products
+
+        section#category
+            if categories.length > 0
+                each category in categories
+                    div.category
+                        h2= category
+                        a.viewsbtn(href=`/products/${category}`) View Products
+        
+                
+            

@@ -1,0 +1,23 @@
+extends layout.pug 
+
+block mainContent 
+    main
+        section.details
+            if products.length > 0
+                each product in products 
+                    div.product-details
+                        h2= product.name 
+                        img(src=product.image alt=product.name)
+                        p Category: #{product.category}
+                        p Price: $#{product.price} 
+                        p= product.description
+                        h3 Features
+                        div.featuresDetails 
+                            each feature in product.features 
+                                span= feature
+                        div.return-buttons 
+                            a.button(href="/products/all") Back to All Products
+                            a.button(href=`/products/${product.category}`) Back to #{product.category} Products
+
+            else 
+                p No products with product ID:#{id} found in this category.

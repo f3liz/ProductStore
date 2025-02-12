@@ -1,0 +1,18 @@
+extends layout.pug 
+
+block mainContent  
+    main
+        section.container
+            h1 All Products
+        section#products
+            if products.length > 0
+                each product in products 
+                    div.product 
+                        img(src=product.image alt=product.name)
+                        h2= product.name 
+                        p Price: $#{product.price} 
+                        p= product.description
+                        .features 
+                            each feature in product.features 
+                                span= feature
+                        a.viewsbtn(href=`/products/product/${product.id}`) View Details
