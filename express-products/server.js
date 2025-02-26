@@ -10,6 +10,9 @@ app.set('views', './views');
 // static assets (css, JS, images, etc...)
 app.use(express.static("./public"));
 
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+
 app.use("/", productsRouter);
 
 // app.get("/", (req, res) => {
